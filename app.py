@@ -3,7 +3,7 @@ import logging
 import sys
 import traceback
 LOGGER = logging.getLogger(__name__)
-from utilty import init_logs,execute_db_query
+from utilty.db_connect import *
 
 
 def extract_data():
