@@ -1,3 +1,2 @@
 # ETL job
-
-ETL job in python
+Connecting to MSSQL DB
