@@ -1,0 +1,7 @@
+SERVER_NAME = 127:0:0.1
+DB_NAME = DB
+DRIVER= SQL Server Native Client 11.0
+DB_USER = 
+DB_VERSION = 
+DB_PASSWORD =
+DB_PORT = 
