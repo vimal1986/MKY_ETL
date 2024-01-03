@@ -5,4 +5,4 @@ steps
 
 1.pip install -r requirements.txt 
 
-2. To run file pyhton app.py
+2. To run file python app.py
