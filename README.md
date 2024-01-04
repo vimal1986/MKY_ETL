@@ -3,12 +3,12 @@ As a part of integrating  the HS student data from Kourier ODS to Quickbase we h
 
 System Requirement
 
-Need python version >= 3.9
+Need python version >= 3.8
 
 Python Modules used in this project
 
 1. pyodbc
-    - Python module that makes accessing ODBC databases
+    - Python module that makes accessing ODBC databases(MSSQL)
 2. python-dotenv
     - Python-dotenv reads key-value pairs from a .env file and can set them as environment variables    
 3. velebit-useful-logs

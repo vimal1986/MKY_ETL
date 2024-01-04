@@ -21,7 +21,7 @@ def extract_data():
         for record in recordset:
             print('row = %r' % (record,))
     else:
-       LOGGER.warning(msg=f"DB Error")
+       LOGGER.error(msg=f"DB Error")
 
    except Exception as e:
       LOGGER.error(
