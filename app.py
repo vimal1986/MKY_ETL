@@ -44,6 +44,7 @@ def load_data(student_data):
     QB_User_Agent = os.getenv("QB_User_Agent")
     QB_appId = os.getenv("QB_appId")
     QB_Base_path = os.getenv('QB_Base_path')
+    QB_Table_id = os.getenv('QB_Table_id')
     
     headers = {
                'QB-Realm-Hostname': QB_Realm_Hostname,
@@ -54,18 +55,16 @@ def load_data(student_data):
     response_app = requests.get(f"{QB_Base_path}/apps?{QB_appId}",headers)
     
     if response_app.status_code == 200: 
-        response_tables = requests.get(f"{QB_Base_path}/tables?appId = {QB_appId}",headers)
+        response_tables = requests.get(f"{QB_Base_path}/tables/{QB_Table_id}?appId = {QB_appId}",headers)
         if response_tables == 200:
-            insertOrUpdateRecordQD(headers,student_data,QB_appId)
+            insertOrUpdateRecordQD(headers,student_data,QB_appId,QB_Table_id)
         else:
-            createTableQB(headers,{},QB_appId)
-            insertOrUpdateRecordQD(headers,student_data,QB_appId)
+            data, status_code = createTableQB(headers,{},QB_appId)
+            insertOrUpdateRecordQD(headers,student_data,QB_appId,data.id)
     else:
         app_id = createQBApp(headers)
-        createTableQB(headers,{},QB_appId)
+        data, status_code = createTableQB(headers,{},QB_appId,data.id)
         insertOrUpdateRecordQD(headers,student_data,app_id)
-        
-    
     
     
 
